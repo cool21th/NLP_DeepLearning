@@ -2,7 +2,7 @@
 
 ## Datasets
 
-word2vec and Glove
+Wiki datasets
 
 https://dumps.wikimedia.org/
 
