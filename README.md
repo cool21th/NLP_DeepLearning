@@ -42,7 +42,7 @@ http://www.cnts.ua.ac.be/conll2000/chunking/
 
 ## NER
 
-https://github.com/artter/twitter_nlp/blob/master/data/annotated/ner.txt
+https://github.com/aritter/twitter_nlp/blob/master/data/annotated/ner.txt
 
 ## Sentiment analysis
 
