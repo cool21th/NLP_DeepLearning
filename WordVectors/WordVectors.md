@@ -48,4 +48,7 @@ t-SNE can help us reduce dimensionality
     t-SNE: t-Distributed Sotchastic Neighbor Embedding(https://lvdmaaten.github.io/tsne/)
     
 
+## WHERE TO GET THE VECTORS:
+      GloVe: https://nlp.stanford.edu/projects/glove/
+      Direct link: http://nlp.stanford.edu/data/glove.6B.zip
 
