@@ -50,5 +50,5 @@ t-SNE can help us reduce dimensionality
 
 ## WHERE TO GET THE VECTORS:
       GloVe: https://nlp.stanford.edu/projects/glove/
-      Direct link: http://nlp.stanford.edu/data/glove.6B.zip
+      Direct link: http://nlp.stanford.edu/data/glove.6B.zip/
 
