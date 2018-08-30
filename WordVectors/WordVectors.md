@@ -54,7 +54,7 @@ GloVe: https://nlp.stanford.edu/projects/glove/
 
 Direct link: http://nlp.stanford.edu/data/glove.6B.zip/
 
-Word2vcL https://code.google.com/archive/p/word2vec/
+Word2vec https://code.google.com/archive/p/word2vec/
 
 direct link: https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing
 
