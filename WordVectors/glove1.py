@@ -48,7 +48,7 @@ def nearest_neighbors(w, n=5):
     idxs = distances.argsort()[1:n+1]
     print("neighbors of: %s" % w)
     for idx in idxs:
-        print("/t%s" % idx2word[idx])
+        print("\t%s" % idx2word[idx])
 
 print("Loading word vectors...")
 word2vec = {}
