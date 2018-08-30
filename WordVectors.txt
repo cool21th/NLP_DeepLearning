@@ -1,4 +1,4 @@
-##TF-IDF : Term Frequency-Inverse Document Frequncy
+## TF-IDF : Term Frequency-Inverse Document Frequncy
 
 Words that appear in many documents are probably less meaningful
 
