@@ -67,11 +67,22 @@ ex) "I like football"
     Feature = [vec("I") + vec("like") + vec("football")]/3
     
 Classifier: 
-   Naive Bayes
-   Logistic Regeression
-   Random Forest
-   Extra Trees
+   Naive Bayes,
+   Logistic Regeression,
+   Random Forest,
+   Extra Trees,
    Etc...
    
  Data: https://www.cs.umb.edu/~smimarog/textmining/datasets/
+ 
  Under: Reuters-21578 R8
+
+ ## RNN
+
+ Embedding layer => Recurrent unit => Dense layer
+
+ Embedding layer: just the word embedding matrix
+
+ Recurrent unit: Simple unit, GRU, or LSTM
+
+ Dense layer: maps recurrent unit's output to one of the output classes
