@@ -59,3 +59,19 @@ Word2vec https://code.google.com/archive/p/word2vec/
 direct link: https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing
 
 
+## Text Classification
+
+Data representation: bag of words
+
+ex) "I like football"
+    Feature = [vec("I") + vec("like") + vec("football")]/3
+    
+Classifier: 
+   Naive Bayes
+   Logistic Regeression
+   Random Forest
+   Extra Trees
+   Etc...
+   
+ Data: https://www.cs.umb.edu/~smimarog/textmining/datasets/
+ Under: Reuters-21578 R8
