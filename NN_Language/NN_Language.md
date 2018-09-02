@@ -1,3 +1,21 @@
+## Language model
+
+Language model: a model of the probability of a sequence of words
+
+Bigram : 2 consecutive words in a sentence
+
+N-grams : a sequence of N consecutive words
+
+Bayes Rule : p(A -> B -> C) = p(C|A -> B)p(A -> B) = p(C|A -> B)p(B|A)p(A)
+
+      p(A) = count(A) / corpus length
+      p(C| A, B) = count(A-> B-> C) / count(A-> B)
+
+Markov Assumption : depends only on what I saw int the previous step
+
+      p(E|A, B, C, D) = p(E|D)
+      
+
 ## Neural Network Bigram Model
 
 old(Logistic Regression): p(y | x) = softmax(W^T * X)
