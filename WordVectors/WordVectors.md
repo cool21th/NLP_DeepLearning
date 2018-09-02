@@ -133,3 +133,17 @@ using np.random.choice
       J = logp(brown | jumps) + logp(fox | jumps) + logp(over | jumps) + logp(the | jumps) +
           log[1-p(apple | jumps) + log[1-p(orange | jumps)  + log[1-p(boat | jumps) + log[1-p(tokyo | jumps)
           
+You can choose negative samples up to 25( 5 or 10)
+With true softmax, there would be 2,999,999 negative samples!
+
+The quick brown fox jumps over the lazy dog.
+
+The quick brown fox lighthouse over the lazy dog.
+
++ve samples: jumps -> brown, jumps -> fox,..
+-ve samples: lighthouse -> brown, lighthouse -> fox,...
+
+
+Hidden implementation details for negative sampling that are useful
+
+
