@@ -77,7 +77,7 @@ Classifier:
  
  Under: Reuters-21578 R8
 
- ## RNN
+## RNN
 
  Embedding layer => Recurrent unit => Dense layer
 
@@ -88,3 +88,48 @@ Classifier:
  Dense layer: maps recurrent unit's output to one of the output classes
 
 
+## CBOW : Continuous bag of words
+
+Context size could be considered 2(or 4)
+
+In practice, context size is usually set from 5-10
+
+The input weight is W(1) for all input words
+
+
+#### Article spinning
+
+A site with lots of information is useful for lots of people
+
+Internet marketers may try to capitalize on this by stealing others' content
+
+An obious solution is to take exsiting articles, and replace parts of it with new words that retain the same meaning
+
+
+
+## Skip gram
+
+Like the opposite of CBOW
+
+Helpful to think of it in terms of bigram
+
+"The quick brown fox jumps over the lazy dog"
+      
+      Bigram model: jumps -> over
+      Skipgram : jumps -> brown, jumps -> fix, jumps -> the
+      
+
+## Negative sampling
+
+Instead of doing multiclass cross-entropy,
+just do binary cross-entropy on the negative samples
+
+using np.random.choice
+
+      Input word: jumps
+      Target words: brown, fox, over, the
+      Negative samples: apple, orange, boat, tokyo
+      
+      J = logp(brown | jumps) + logp(fox | jumps) + logp(over | jumps) + logp(the | jumps) +
+          log[1-p(apple | jumps) + log[1-p(orange | jumps)  + log[1-p(boat | jumps) + log[1-p(tokyo | jumps)
+          
