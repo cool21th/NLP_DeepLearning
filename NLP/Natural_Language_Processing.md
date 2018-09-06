@@ -120,3 +120,11 @@ Reference: [An Introduction to Bag-of-words in NLP](https://medium.com/greayatom
         vect.set_params(max_def=0.5)
         
         vect.set_params(min_df=2)
+
+
+## Bag of Words model issues
+1. Fixed-sized input
+2. Doesn't take word order into account
+3. Fixed-sized output
+
+-> Answer is RNNs
