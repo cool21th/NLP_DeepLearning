@@ -1,7 +1,7 @@
 
 ## Natural Language Processing
 
-[A dive into Natural Language Processing](https://medium.com/greyatom/a-dive-into-natural-language-processing-103ae0b0a588)
+Reference: [A dive into Natural Language Processing](https://medium.com/greyatom/a-dive-into-natural-language-processing-103ae0b0a588)
 
 * Wikipedia: Natural-Language Processing is an area of computer science and artificial intelligence 
 concerned with the interactions between computers and human(natural) languages, in partifular hot to 
@@ -41,19 +41,82 @@ Sentiment analysis, Speech recognition, Topic Segment etc.
           filtered_sentence.append(word)
 
 * Stemming and Lemmatization
-
+      
+      ##### Stemming #####
       # Porter Stemmer
       from nltk.stem.porter import PorterStemmer
       porter_stemmer = PorterStemmer()
       porter_stmeer.stem("crying")
       
       >> 'cri'
-            
+      
+      # Lancaster Stemmer
       from nltk.stemlancaster import LancasterStemmer
       lancaster_stemmer = LancasterStemmer()
+      lancaster_stemmer.stem("crying")
+      
+      >> 'cry'
+      
+      # Snowball Stemmer
+      from nltk.stem import SnowballStemmer
+      snowball_stemmer = SnowballStemmer("english)
+      snowball_stemmer.stem("crying")
+      
+      >> 'cri'
+      
+      #### Lemmatization ####
+      
+      from nltk.stem import WordNetLemmatizer
+      wordnet_lemmatizer = WordNetLemmatizer()
+      wordnet_lemmatizer.lemmatize("came", pos="v")
+      
+      >> 'come'
       
 
 ## Bag of word in NLP
 
-[An Introduction to Bag-of-words in NLP](https://medium.com/greayatom/an-introduction-to-bag-of-words-in-nlp-ac967d43b428/)
+Reference: [An Introduction to Bag-of-words in NLP](https://medium.com/greayatom/an-introduction-to-bag-of-words-in-nlp-ac967d43b428/)
 
+* Bag-of-Words: tokenized words(gram) for each observation and find out the frequency of each token
+
+* The process of converting NLP text into numbers is called vectorization in Machine Learning
+1. Counting the number of times each word appears in a document
+2. Calculating the frequency that each word apeears in a document out of all the words in the document
+
+
+* CountVectorizer
+        
+        from sklearn.feature_extraction.text import CountVectorizer, TfidVectorizer
+        vect = CountVectorizer()
+        
+        from nltk.tokenize import TreebankwordTokenizer
+        tokenizer = TreebankWordTokenizer()
+        vect.set_params(tokenizer=tokenizer.tokenize)
+        
+        vect.set_params(stop_words='english')
+        
+        # 1-grams -> 2-grams
+        vect.set_params(ngram_range(1,2))
+        
+        # ignore terms more than 50% of the documents
+        vect.set_params(max_df=0.5)
+        
+        # least 2 documents
+        vect.set_params(min_df=2)
+        
+
+* TF-IDF Vectorizer
+
+        from sklearn.feature_extraction.text import TfidVectorizer
+        vect = TfidVectorizer()
+
+        from nltk.tokenize import TreebankWordTokenizer
+        tokenizer = TreebackWordTokenizer()
+        vect.set_params(tokenizer=tokenizer.tokenize)
+        
+        vect.set_params(stop_words='english')
+        vect.set_params(ngram_range(1,2))
+        
+        vect.set_params(max_def=0.5)
+        
+        vect.set_params(min_df=2)
