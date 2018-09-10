@@ -147,3 +147,17 @@ The quick brown fox lighthouse over the lazy dog.
 Hidden implementation details for negative sampling that are useful
 
 
+## GLoVe
+
+Global vectors for word representation - alternative method of creating word embedding
+
+Just some work upfront, then it's exactly like matrix factorization
+
+Context distance
+      
+      "I love dogs and cats"
+      X(I, love) += 1
+      X(I, dogs) += 1/2
+      X(I, and) += 1/3
+      logX(i, j) will be the target
+      
