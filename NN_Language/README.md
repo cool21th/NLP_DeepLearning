@@ -38,6 +38,8 @@ D << V (D is much smaller than V)
 
 -> Autoencode pattern : Bottleneck(Compress V dimensions into D dimensions)
 
+
+
 ## Logistic Regression for Language Model
 
 Recall: it was very slow
@@ -57,3 +59,24 @@ ex) Neural Network Model
 
       Elapsed time training: 0:08:09.506799
       avg_bigram_loss: 3.7779453269292613
+
+
+
+## Bidirectional RNNs
+
+reference: All of Recurrent Neural Network(https://medium.com/@jianqiangma/all-about-recurrent-neural-networks-9e5ae2936f6e)
+
+Bidirectional RNNs combine an RNN that moves forward through tume beginning from the start of
+seauence with another RNN that moves backward through time beginning from the end of the sequence
+
+#### Many-to-one
+The backwards RNN has only seen one word
+
+      this is default behavior in Keras if "return_sequences=Fasle"
+
+#### When not to use a Bidirectional RNN
+
+Don't use bidirectional RNN to predict the future
+
+For NLP Bidirectional RNN makes sense because it usually get the entire input at once
+
