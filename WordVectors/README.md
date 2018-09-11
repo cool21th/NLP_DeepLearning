@@ -161,3 +161,24 @@ Context distance
       X(I, and) += 1/3
       logX(i, j) will be the target
       
+
+## Hyperparameter Challenge
+
+Results are not Perfect
+
+Learning rate, momentum, regularization
+
+Number of input files(training data size)
+
+Dimensionality of word vectors
+
+Vocabulary size
+
+
+## Word2vec and GloVe
+
+reference(http://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization.pdf)
+
+Neural word embedding: embeddings from a neural network(word2vec)
+
+Matrix factorization: GloVe
