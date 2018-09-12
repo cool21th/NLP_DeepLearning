@@ -128,3 +128,34 @@ Reference: [An Introduction to Bag-of-words in NLP](https://medium.com/greayatom
 3. Fixed-sized output
 
 -> Answer is RNNs
+
+-----------------------------
+
+## Parts-of-Speech Tagging for Neural Network
+
+        Logistic regression : p(tag|word) = softmax(W[word_index])
+            -> only maps word to tag
+            -> one word can have multiple tags
+        RNNs :
+            -> Sometimes LSTM beats GRU, sometimes the opposite
+        HMMs
+
+
+#### Hidden Markov Models
+
+Hidden states = POS tags, observed = words
+
+HMM = pi, A, B
+
+pi = frequency of start tags
+
+A = p(tag(t) | tag(t-1))
+
+B = p(word(t) | tag(t))
+
+All can be calculated by just counting
+
+
+        
+
+
