@@ -156,6 +156,18 @@ B = p(word(t) | tag(t))
 All can be calculated by just counting
 
 
+------------------------------
+
+## Named Entity Recognition
+
+        Logistic regression
+        Recurrent neural network
+
+simiar to POS taggin 
+
+Named entites: person, company, location, etc
+
+
         
 
 
