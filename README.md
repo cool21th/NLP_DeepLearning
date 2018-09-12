@@ -38,7 +38,7 @@ convert from XML to TXT with:
 
 ## Pos tagging
 
-http://www.cnts.ua.ac.be/conll2000/chunking/
+https://www.clips.uantwerpen.be/conll2000/chunking/
 
 ## NER
 
