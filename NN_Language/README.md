@@ -80,3 +80,33 @@ Don't use bidirectional RNN to predict the future
 
 For NLP Bidirectional RNN makes sense because it usually get the entire input at once
 
+
+## Recursive Neural Networks
+
+Recursiveness: Only define a node's value by its children
+
+Recursive neural networks are trees(Tree Neural Networks(TNNs))
+
+Bianry, N-ary
+
+Can use or not use inner nodes for trainning
+
+Problems
+
+      Each sentence tree is a different graph
+      Different costs, different gradients, etc..
+      Lots of RAM + time required
+
+
+#### Recursive NNs to Recurrent NNs
+
+TNNs = Tree
+
+RNNs = sequences
+
+Convert tree -> Sequneces
+
+      3 sparate list to store a tree: Parents/ relations/ words
+      calculate value at hidden node, n
+      update parent
+      
