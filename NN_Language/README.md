@@ -110,3 +110,7 @@ Convert tree -> Sequneces
       calculate value at hidden node, n
       update parent
       
+
+## [Memory Networks](https://arxiv.org/abs/1410.3916)
+
+Memory networks reason with inference components combined with a long-term memory component
