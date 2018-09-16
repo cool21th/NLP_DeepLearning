@@ -114,3 +114,15 @@ Convert tree -> Sequneces
 ## [Memory Networks](https://arxiv.org/abs/1410.3916)
 
 Memory networks reason with inference components combined with a long-term memory component
+
+      Before
+            No-memory - just read the input sequence and produce an answer
+            binary datasets: Question/ Answer, Statement/ Response, Input/Translation
+            
+      After
+            Holds a memory of the story it read
+            Triples datasets: Story/ Question/ Answer
+            
+
+**{Story sentences}**.{Questions} => Softmax . **{Story sentences}** -> Dense(softmax)
+
