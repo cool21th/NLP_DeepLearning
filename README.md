@@ -1,6 +1,24 @@
 # NLP_DeepLearning
 
-## Datasets
+## RNNs
+
+    Many-to-one 
+        Applications: Spam detections, Sentiment analysis, etc.
+
+    Simple Many-to-many
+        Input length = Output length
+        Applications: POS tagging, NER, Language modeling(generating poetry
+
+    Seq2Seq & Attention(General Many-to-many)
+        Input length != Output length
+        Applications: translation, chatbots, QA
+        
+        
+
+
+
+
+# Datasets
 
 ## Wiki datasets
 
@@ -47,6 +65,9 @@ https://github.com/aritter/twitter_nlp/blob/master/data/annotated/ner.txt
 ## Sentiment analysis
 
 http://nlp.stanford.edu/sentiment/
+
+
+
 
 
 ### Reference Site
