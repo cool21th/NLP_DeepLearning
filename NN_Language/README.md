@@ -62,7 +62,7 @@ ex) Neural Network Model
 
 
 
-## Bidirectional RNNs
+## [Bidirectional RNNs](https://maxwell.ict.griffith.edu.au/spl/publications/papers/ieeesp97_schuster.pdf)
 
 reference: All of Recurrent Neural Network(https://medium.com/@jianqiangma/all-about-recurrent-neural-networks-9e5ae2936f6e)
 
