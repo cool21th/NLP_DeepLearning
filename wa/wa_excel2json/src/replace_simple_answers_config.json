@@ -1,0 +1,48 @@
+{
+	"Workspace Name": "Build v0.5.1.4",
+	"Old Workspace": {
+		"filename": "../output/entities_added.json"
+	},
+	"Output File": "../output/answers_added.json",
+	"Stitching Nodes": [{
+      "prune_node": "Social_Conversations",
+      "prune_topic": "Social_Conversations"
+    }, {
+      "prune_node": "ManagedByGTDocument",
+      "prune_topic": "ManagedByGTDocument"
+    }
+	],
+    "Collapse dialog by intent": true,
+	"long answer question": "Do you want to know more?",
+	"yesNoTag": "(Yes/No)",
+  	"breakTag": "\n",
+	"yesCondition": "#ANSWER_YES",
+	"noCondition": "#ANSWER_NO",
+    "formatHTML": false,
+  "responseToNo": "What else would you like to know?",
+  "sameIntentCondition": "(irrelevant || intent[0].confidence < 0.7)",
+	"Social_Conversations": {
+    "filename": "../data/Social_Conversations.xlsx",
+    "sheet": "SIMPLE_ANSWERS",
+    "intent": "Intent",
+    "intent prefix": "",
+    "entity type": "Entity Class",
+    "entity value": "Entity Value",
+    "node code": "1",
+    "answers": "Answer",
+    "filter header": "Status",
+    "filter by regex": "Draft"
+  },
+  "ManagedByGTDocument": {
+		"filename": "../data/ManagedByGTDocument.xlsx",
+		"sheet": "SIMPLE_ANSWERS",
+		"intent": "Intent",
+		"intent prefix": "",
+		"entity type": "Entity Class",
+		"entity value": "Entity Value",
+		"node code": "2",
+		"answers": "Answer",
+		"filter header": "Status",
+		"filter by regex": "Draft"
+	}
+}
