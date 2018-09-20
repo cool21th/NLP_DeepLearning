@@ -1,0 +1,30 @@
+{
+	"Workspace Name": "Example Workspace",
+	"Old Workspace": {
+		"filename": "../data/workspace-default.json"
+	},
+	"Output File": "../output/intents_added.json",
+	"Keep Previous Intents": false,
+	"New Intents": [
+        "Social_Conversations",
+        "ManagedByGTDocument"
+	],
+	  "Social_Conversations": {
+	      "filename": "../data/Social_Conversations.xlsx",
+	      "sheet": "INTENTS",
+	      "intent header": "Intent",
+	      "intent prefix": "",
+	      "question header": "Training Example",
+	      "filter header": "Status",
+	      "filter by regex": "Draft"
+	  },
+	"ManagedByGTDocument": {
+		"filename": "../data/ManagedByGTDocument.xlsx",
+		"sheet": "INTENTS",
+		"intent header": "Intent",
+		"intent prefix": "",
+		"question header": "Training Example",
+		"filter header": "Status",
+		"filter by regex": "Draft"
+	}
+}
