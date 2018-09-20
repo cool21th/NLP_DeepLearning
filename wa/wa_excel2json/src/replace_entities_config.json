@@ -1,0 +1,32 @@
+{
+	"Workspace Name": "Example Workspace",
+	"Old Workspace": {
+		"filename": "../output/intents_added.json"
+	},
+	"Output File": "../output/entities_added.json",
+	"Keep Previous Entities": false,
+	"New Entities": [
+		"Social_Conversations",
+		"ManagedByGTDocument"
+	],
+	"Social_Conversations": {
+		"filename": "../data/Social_Conversations.xlsx",
+		"sheet": "ENTITIES",
+		"entity header": "Entity Class",
+		"value header": "Entity Value",
+		"synonym header": "Synonym",
+		"filter header": "Status",
+		"filter by regex": "Draft",
+		"fuzzy match": false
+	},
+	"ManagedByGTDocument": {
+		"filename": "../data/ManagedByGTDocument.xlsx",
+		"sheet": "ENTITIES",
+		"entity header": "Entity Class",
+		"value header": "Entity Value",
+		"synonym header": "Synonym",
+		"filter header": "Status",
+		"filter by regex": "Draft",
+		"fuzzy match": false
+	}
+}
