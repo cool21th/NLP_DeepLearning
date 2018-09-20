@@ -1,0 +1,100 @@
+# -*- coding: utf-8 -*-
+
+# Copyright 2015 IBM Corp.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# Author: Thiago Salles [tsalles@br.ibm.com]
+
+import sys
+import json
+import argparse
+import datetime
+from watson_developer_cloud import ConversationV1
+
+
+def merge(intents, entities, dialog, counterexamples, name, desc, lang, deployment):
+    print('Intents: {}'.format(len(intents)))
+    print('CounterExamples: {}'.format(len(counterexamples)))
+    print('Examples: {}'.format(sum(len(x['examples']) for x in intents)))
+    print('Entities: {}'.format(len(entities)))
+    print('Dialog: {}'.format(len(dialog)))
+    for idx in range(0, len(dialog)):
+      if dialog[idx] and 'context' in dialog[idx] and dialog[idx]['context']:
+        if 'metadata' not in dialog[idx]['context']:
+          dialog[idx]['context']['metadata'] = {'deployment': deployment}
+        else:
+          dialog[idx]['context']['metadata']['deployment'] = deployment
+    return {'intents': intents, 'entities': entities, 'dialog_nodes': dialog,
+            'counterexamples': counterexamples, 'name': name, 'language': lang,
+            'description': desc if desc else name, 'learning_opt_out': True}
+
+
+def load_workspace(workspace_id, wcs_service):
+    return wcs_service.get_workspace(workspace_id=workspace_id, export=True)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Merges a WCS Workspace (JSON) with a CSV file containing <question,intent> pairs')
+    parser.add_argument('-n', '--name', help='Name of the merged workspace file.')
+    parser.add_argument('-D', '--description', help='Description of the merged workspace file.')
+    parser.add_argument('--deployment', help='Deployment id')
+
+    parser.add_argument('-i', '--intents', required=True, help='workspace_id:user:password from the workspace to pick intents.')
+    parser.add_argument('-e', '--entities', required=True, help='workspace_id:user:password from the workspace to pick entities.')
+    parser.add_argument('-d', '--dialog', required=True, help='workspace_id:user:password from the workspace to pick dialog.')
+    parser.add_argument('-o', '--output', required=True, help='workspace_id:user:password from the workspace to pick dialog. Or, if you want, output filename for the merged WCS file (JSON) containing the merged workspace.')
+    args = parser.parse_args()
+
+    version = '2018-02-16'
+    w_url = 'https://gateway.watsonplatform.net/conversation/api'
+    name = args.name
+    desc = args.description
+    output = args.output
+    deployment = args.deployment
+    try:
+      i_wid, i_user, i_passwd = args.intents.split(":")
+      e_wid, e_user, e_passwd = args.entities.split(":")
+      d_wid, d_user, d_passwd = args.dialog.split(":")
+    except ValueError:
+      print('Invalid credentials format. Please specify workspace id, username and password colon separated.')
+      parser.print_help()
+      sys.exit(1)
+
+    out_flds = output.split(":")
+    update = len(out_flds) == 3
+    if update:
+      o_wid, o_user, o_passwd = out_flds
+
+    intents_wcs = ConversationV1(url=w_url, username=i_user, password=i_passwd, version=version, x_watson_learning_opt_out=True)
+    entities_wcs = ConversationV1(url=w_url, username=e_user, password=e_passwd, version=version, x_watson_learning_opt_out=True)
+    dialog_wcs = ConversationV1(url=w_url, username=d_user, password=d_passwd, version=version, x_watson_learning_opt_out=True)
+    for wcs in [intents_wcs, entities_wcs, dialog_wcs]:
+        wcs.x_watson_learning_opt_out = True
+
+    intents = load_workspace(i_wid, intents_wcs)
+    entities = load_workspace(e_wid, entities_wcs)
+    dialog = load_workspace(d_wid, dialog_wcs)
+    merged = merge(intents.get('intents', []),
+                   entities.get('entities', []),
+                   dialog.get('dialog_nodes', []),
+                   intents.get('counterexamples', []),
+                   name if name else intents.get('name', 'Merged WCS'), desc,
+                   intents.get('language', ''), deployment)
+    if update:
+        wcs = ConversationV1(url=w_url, username=o_user, password=o_passwd, version=version, x_watson_learning_opt_out=True)
+        wcs.x_watson_learning_opt_out = True
+        wcs.update_workspace(workspace_id=o_wid, **merged)
+    else :
+        with open(output_file, 'w') as outf:
+            json.dump(merged, outf)
