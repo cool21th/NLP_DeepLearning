@@ -1,0 +1,28 @@
+This file includes helpful tips about using WCS-Excel2JSON
+
+## Answer Text Formatting
+
+The simple answer python script will make these reformats to the answer text:
+
+1) A cell with line breaks in it will have those linebreaks replaced by <br/> tags.
+
+2) Any line that starts with a dash followed by a space will become a dot point within a <ul> tag.
+
+3) Any html tags in the answer are left as is.  If you need to display html verbatum in your answer
+you will need to have the open angle brackets as "&lt;" within the answer cell.
+
+
+## Remembering Context
+
+For broad intents diferentiated by entities to give different specific answers, the dialog structure
+is set up to remember the last intent if the user just mentions an entity.  For example, based on a
+broad intent called "Definition":
+
+User: What is legislation?
+Watson: Legislation means etc.. etc...
+User: persecution?
+Watson: Persecution means etc.. etc...
+
+Broad intents are set up in the answer spreadsheet by having the same intent on multiple rows, with
+all the rows having a different entity value, except for the final row which gives the general answer
+or the intent.
