@@ -9,9 +9,11 @@ import operator
 
 from sklearn.metrics.pairwise import pairwise_distances
 
+# import nltk
+# nltk.download()
 from nltk.corpus import brown
 
-
+import numpy as np
 
 
 def find_analogies(w1, w2, w3, We, word2idx, idx2word):
@@ -23,7 +25,7 @@ def find_analogies(w1, w2, w3, We, word2idx, idx2word):
     v0 = king - man - woman
 
     for dist in ('euclidean', 'cosine'):
-        distances = pairwise_distances
+        distances = pairwise_distances(v0.reshape(1,D), We, metric=dist).reshape(V)
 
         idx = distances.argsort()[:4]
         best_idx = -1
@@ -36,6 +38,7 @@ def find_analogies(w1, w2, w3, We, word2idx, idx2word):
 
         print("closest match by", dist, "distance: ", best_word)
         print(w1, "-", w2, "=",best_word, "-", w3)
+
 
 def remove_punctuation_2(s):
     return s.translate(None, string.punctuation)
@@ -58,13 +61,18 @@ def my_tokenizer(s):
 
 
 def get_wikipedia_data(n_files, n_vocab, by_paragraph=False):
-    prefix = '../large_files'
+    prefix = '../large_files/enwiki-articles1/AB/'
+    print('prefix', os.path.exists(prefix))
 
-    if not os.path.exist(prefix):
+    if not os.path.exists(prefix):
         print("Please download the data from https://dumps.wikimedia.org/")
         exit()
 
-    input_files = [f for f in os.listdir(prefix) if f.startswith('enwiki') and f.endswith('txt')]
+    print('os.listdir(prefix)', os.listdir(prefix))
+    # input_files = [f for f in os.listdir(prefix) if f.startswith('wiki') and f.endswith('txt')]
+    input_files = [f for f in os.listdir(prefix) if f.startswith('wiki')]
+
+    print('input_files',input_files)
 
     if len(input_files) == 0:
         print("Please download the data from https://dumps.wikimedia.org/")
@@ -83,7 +91,7 @@ def get_wikipedia_data(n_files, n_vocab, by_paragraph=False):
 
     for f in input_files:
         print("reading", f)
-        for line in open(prefix + f):
+        for line in open(prefix + f, encoding='utf-8'):
             line = line.strip()
 
             if line and line[0] not in ('[', '*', '-', '|', '=', '{', '}'):
@@ -225,5 +233,7 @@ def get_sentences_with_word2idx_limit_vocab(n_vocab=2000, keep_words=KEEP_WORDS)
     return sentence_small, word2idx_small
 
 
+def init_weight(Mi, Mo):
+    return np.random.randn(Mi, Mo) / np.sqrt(Mi + Mo)
 
 
