@@ -109,7 +109,14 @@ Convert tree -> Sequneces
       3 sparate list to store a tree: Parents/ relations/ words
       calculate value at hidden node, n
       update parent
-      
+
+## [Sequence to Sequence Learning with Neural Networks](https://arxiv.org/abs/1409.3215) 
+
+
+## Attention
+
+   [Feed-Forward Networks with Attention Can Solve Some Long-Term Memory Problems](https://arxiv.org/abs/1512.08756)
+
 
 ## [Memory Networks](https://arxiv.org/abs/1410.3916)
 
