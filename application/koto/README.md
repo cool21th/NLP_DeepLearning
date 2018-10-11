@@ -1,4 +1,4 @@
-## KOTO
+## [KOTO](https://koto.ai/)
 
 문서단위의 코퍼스로부터 시간(Time)과 공간(Space)에서의 지정학적 이벤트(GeoPolitical events)를 예측하는 플랫폼
 
